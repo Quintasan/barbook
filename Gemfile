@@ -6,6 +6,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'decent_exposure'
+gem 'dry-validation'
+gem 'hamlit'
+gem 'hamlit-rails'
+gem 'jb'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2'
 gem 'sqlite3', '~> 1.4'

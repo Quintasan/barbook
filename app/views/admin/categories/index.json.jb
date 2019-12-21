@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+@admin_categories.map do |admin_category|
+  {
+    id: admin_category.id,
+    name: admin_category.name,
+    url: admin_category_url(admin_category, format: :json)
+  }
+end

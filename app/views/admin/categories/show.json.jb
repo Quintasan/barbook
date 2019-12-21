@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+{
+  id: @admin_category.id,
+  name: @admin_category.name,
+  created_at: @admin_category.created_at,
+  updated_at: @admin_category.updated_at
+}
