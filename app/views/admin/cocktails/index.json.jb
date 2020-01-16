@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+cocktails.map do |cocktail|
+  {
+    id: cocktail.id,
+    name: cocktail.name,
+    category: cocktail.category_name,
+    category_id: cocktail.category_id,
+    ingredients: cocktail.ingredients,
+    glassware: cocktail.glassware,
+    technique: cocktail.technique,
+    youtube_link: cocktail.youtube_link,
+    garnish: cocktail.garnish,
+    signature: cocktail.signature,
+    menu: cocktail.menu,
+    url: cocktail_url(cocktail, format: :json)
+  }
+end

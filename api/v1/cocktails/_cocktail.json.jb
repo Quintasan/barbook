@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+{
+  id: cocktail.id,
+  name: cocktail.name,
+  category: cocktail.category_name,
+  category_id: cocktail.category_id,
+  ingredients: cocktail.ingredients,
+  glassware: cocktail.glassware,
+  technique: cocktail.technique,
+  garnish: cocktail.garnish,
+  youtube_link: cocktail.youtube_link,
+  signature: cocktail.signature,
+  menu: cocktail.menu,
+  created_at: cocktail.created_at,
+  updated_at: cocktail.updated_at
+}

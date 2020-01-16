@@ -1,0 +1,37 @@
+= form_with model: [:admin, cocktail] do |f|
+  - if cocktail.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(cocktail.errors.count, "error")} prohibited this cocktail from being saved:"
+      %ul
+        - cocktail.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :category
+    = f.collection_select(:category_id, Category.all, :id, :name)
+  .field
+    = f.label :ingredients
+    = f.text_area :ingredients
+  .field
+    = f.label :glassware
+    = f.text_field :glassware
+  .field
+    = f.label :technique
+    = f.text_area :technique
+  .field
+    = f.label :garnish
+    = f.text_field :garnish
+  .field
+    = f.label :youtube_link
+    = f.text_field :youtube_link
+  .field
+    = f.label :signature
+    = f.check_box :signature
+  .field
+    = f.label :menu
+    = f.check_box :menu
+  .actions
+    = f.submit 'Save'

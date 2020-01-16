@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CategoryParams < Dry::Validation::Contract
+class CategoryParams < ApplicationContract
   params do
     required(:category).hash do
       required(:name).filled(:string)

@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class CategoriesHelper
+    module CategoriesHelper
     end
   end
 end

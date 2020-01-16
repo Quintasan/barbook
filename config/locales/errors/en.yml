@@ -1,0 +1,7 @@
+en:
+  dry_validation:
+    errors:
+      rules:
+        category:
+          name:
+            must_be_unique: "must be unique"

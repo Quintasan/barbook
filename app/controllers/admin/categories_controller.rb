@@ -15,15 +15,14 @@ module Admin
 
     def create
       if category.save
-        redirect_to category, notice: 'Category was successfully created.'
+        redirect_to admin_category_url(category), notice: 'Category was successfully created.'
       else
         render :new
       end
     end
 
     def update
-      if category_params.success?
-        category.update(category_params.to_h[:category])
+      if category.update(category_params)
         redirect_to admin_category_url(category), notice: 'Category was successfully updated.'
       else
         render :edit
@@ -38,7 +37,7 @@ module Admin
     private
 
     def category_params
-      ::CategoryParams.new.call(params.to_unsafe_h)
+      params.require(:category).permit(:name)
     end
   end
 end

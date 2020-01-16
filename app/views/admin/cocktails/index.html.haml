@@ -1,0 +1,33 @@
+%h1 Listing cocktails
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Ingredients
+      %th Glassware
+      %th Technique
+      %th Garnish
+      %th Signature
+      %th Menu
+      %th
+      %th
+      %th
+
+  %tbody
+    - cocktails.each do |cocktail|
+      %tr
+        %td= cocktail.name
+        %td= cocktail.ingredients
+        %td= cocktail.glassware
+        %td= cocktail.technique
+        %td= cocktail.garnish
+        %td= cocktail.signature
+        %td= cocktail.menu
+        %td= link_to 'Show', cocktail
+        %td= link_to 'Edit', edit_cocktail_path(cocktail)
+        %td= link_to 'Destroy', cocktail, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Cocktail', new_admin_cocktail_path
