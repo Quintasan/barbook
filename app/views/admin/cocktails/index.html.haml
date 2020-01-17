@@ -1,33 +1,25 @@
 %h1 Listing cocktails
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Ingredients
-      %th Glassware
-      %th Technique
-      %th Garnish
-      %th Signature
-      %th Menu
-      %th
-      %th
-      %th
+= link_to 'New Cocktail', new_admin_cocktail_path, class: "btn btn btn-success mt-2 mb-4"
 
-  %tbody
-    - cocktails.each do |cocktail|
-      %tr
-        %td= cocktail.name
-        %td= cocktail.ingredients
-        %td= cocktail.glassware
-        %td= cocktail.technique
-        %td= cocktail.garnish
-        %td= cocktail.signature
-        %td= cocktail.menu
-        %td= link_to 'Show', cocktail
-        %td= link_to 'Edit', edit_cocktail_path(cocktail)
-        %td= link_to 'Destroy', cocktail, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.cocktails.container.mx-auto.d-flex.flex-column.flex-lg-row.flex-wrap.justify-around
+  - cocktails.each do |cocktail|
+    .card.mr-2.mb-2.w-lg-25
+      =link_to admin_cocktail_path(cocktail) do
+        %img.card-img-top{src: "https://redbeansanderic.com/wp-content/uploads/2017/10/ThePlaceholder3-1024x683.jpg"}
+      .card-body
+        .d-inline-flex.mb-4
+          %span{class: signature_badge_class(cocktail)}= signature_label(cocktail)
+        %h5.card-title= cocktail.name
+        %h6.card-title= t(".ingredients")
+        %p.card-text= cocktail.ingredients
+        %h6.card-title= t(".glassware")
+        %p.card-text= cocktail.glassware
+        %h6.card-title= t(".technique")
+        %p.card-text= cocktail.technique
+        %h6.card-title= t(".garnish")
+        %p.card-text= cocktail.garnish
 
-%br
-
-= link_to 'New Cocktail', new_admin_cocktail_path
+        =link_to 'Show', admin_cocktail_path(cocktail), class: "btn btn-primary"
+        =link_to 'Edit', edit_admin_cocktail_path(cocktail), class: "btn btn-primary"
+        =link_to 'Destroy', admin_cocktail_path(cocktail), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"

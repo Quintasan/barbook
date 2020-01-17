@@ -10,4 +10,6 @@ environment.plugins.append(
   })
 )
 
+environment.splitChunks()
+
 module.exports = environment
