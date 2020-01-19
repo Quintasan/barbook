@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to: "admin/cocktails#index"
+
   namespace :admin do
     resources :categories
     resources :cocktails
