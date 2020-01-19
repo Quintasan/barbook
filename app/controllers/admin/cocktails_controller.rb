@@ -14,7 +14,9 @@ module Admin
     def edit; end
 
     def create
-      if cocktail.save
+      if cocktail.valid?
+        cocktail.image_derivatives! if photo.image_changed?
+        cocktail.save
         redirect_to admin_cocktail_path(cocktail), notice: 'Cocktail was successfully created.'
       else
         render :new
@@ -24,6 +26,8 @@ module Admin
     # PATCH/PUT /cocktails/1
     def update
       if cocktail.update(cocktail_params)
+        cocktail.image_derivatives! if photo.image_changed?
+        cocktail.save
         redirect_to admin_cocktail_path(cocktail), notice: 'Cocktail was successfully updated.'
       else
         render :edit
@@ -47,7 +51,8 @@ module Admin
         :signature,
         :menu,
         :category_id,
-        :youtube_link
+        :youtube_link,
+        :image
       )
     end
   end

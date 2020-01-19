@@ -25,6 +25,10 @@
     = f.label :garnish
     = f.text_field :garnish
   .field
+    = f.hidden_field :image, value: cocktail.cached_image_data
+    = f.label :image
+    = f.file_field :image
+  .field
     = f.label :youtube_link
     = f.text_field :youtube_link
   .field

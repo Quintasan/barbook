@@ -1,33 +1,22 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = cocktail.name
-%p
-  %b Category:
-  = cocktail.category_name
-%p
-  %b Ingredients:
-  = cocktail.ingredients
-%p
-  %b Glassware:
-  = cocktail.glassware
-%p
-  %b Technique:
-  = cocktail.technique
-%p
-  %b Garnish:
-  = cocktail.garnish
-%p
-  %b YouTube link:
-  = cocktail.youtube_link
-%p
-  %b Signature:
-  = cocktail.signature
-%p
-  %b Menu:
-  = cocktail.menu
+.cocktail.container.mx-auto.d-flex.justify-content-center
+  .card
+    %img.card-img-top{src: cocktail.image_url(:small)}
+    .card-body
+      .d-inline-flex.mb-4
+        %span{class: signature_badge_class(cocktail)}= signature_label(cocktail)
+      %h5.card-title= cocktail.name
+      %h6.card-title= t(".youtube_link")
+      %p.card-text= cocktail.youtube_link
+      %h6.card-title= t(".ingredients")
+      %p.card-text= cocktail.ingredients
+      %h6.card-title= t(".glassware")
+      %p.card-text= cocktail.glassware
+      %h6.card-title= t(".technique")
+      %p.card-text= cocktail.technique
+      %h6.card-title= t(".garnish")
+      %p.card-text= cocktail.garnish
 
-= link_to 'Edit', edit_admin_cocktail_path(cocktail)
-\|
-= link_to 'Back', admin_cocktails_path
+      = link_to 'Edit', edit_admin_cocktail_path(cocktail), class: "btn btn-primary"
+      = link_to 'Back', admin_cocktails_path, class: "btn btn-primary"
