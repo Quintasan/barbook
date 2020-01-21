@@ -21,6 +21,20 @@ require "rails/test_unit/railtie"
 Bundler.require(*Rails.groups)
 
 module BarBook
+  class Config < Anyway::Config
+    attr_config :secret_key_base,
+                :database_host,
+                :database_port,
+                :database_user,
+                :database_password,
+                :database_adapter,
+                :database_name
+  end
+
+  def self.config
+    @config ||= Config.new
+  end
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0

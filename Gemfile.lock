@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/palkan/anyway_config
+  revision: 7ab8a51a06ca9d9a8e3df8ced3df4bce332a6477
+  branch: master
+  specs:
+    anyway_config (2.0.0.pre2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -161,6 +168,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.0.2)
       ast (~> 2.4.0)
+    pg (1.2.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -265,6 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anyway_config!
   awesome_print
   bootsnap (>= 1.4.2)
   byebug
@@ -277,6 +286,7 @@ DEPENDENCIES
   image_processing (~> 1.8)
   jb
   listen (>= 3.0.5, < 3.2)
+  pg
   pry
   pry-byebug
   pry-rails
@@ -295,7 +305,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.0.2
