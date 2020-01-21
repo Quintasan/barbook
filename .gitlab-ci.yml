@@ -1,0 +1,26 @@
+image: "timbru31/ruby-node:2.6"
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - vendor/ruby
+    - node_modules
+
+before_script:
+  - gem install bundler -v 2.0.2
+  - bundle install --jobs=$(nproc) --path vendor/ruby
+  - yarn install --check-files
+
+test:
+  variables:
+    RAILS_ENV: "test"
+    NODE_ENV: "test"
+  script:
+    - bundle exec rails webpacker:compile
+    - bundle exec rails test
+
+rubocop:
+  variables:
+    RAILS_ENV: "test"
+  script:
+    - bundle exec rubocop

@@ -36,7 +36,7 @@ module Admin
 
     def destroy
       cocktail.destroy
-      redirect_to cocktails_url, notice: 'Cocktail was successfully destroyed.'
+      redirect_to admin_cocktails_url, notice: 'Cocktail was successfully destroyed.'
     end
 
     private

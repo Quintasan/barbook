@@ -44,4 +44,10 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

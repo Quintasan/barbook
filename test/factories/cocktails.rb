@@ -9,5 +9,7 @@ FactoryBot.define do
     garnish { "MyString" }
     signature { false }
     menu { false }
+
+    association :category
   end
 end

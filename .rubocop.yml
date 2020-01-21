@@ -4,6 +4,8 @@ inherit_gem:
 AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.6
+  Exclude:
+    - vendor/**/*
 
 Metrics/BlockLength:
   Exclude:
