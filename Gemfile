@@ -3,8 +3,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.5'
 
+gem 'anyway_config', git: 'https://github.com/palkan/anyway_config', branch: 'master'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'decent_exposure'
 gem 'dry-validation'
@@ -15,9 +16,12 @@ gem 'jb'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2'
 gem 'shrine', '~> 3.0'
-gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'awesome_print'
@@ -27,6 +31,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do

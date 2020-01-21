@@ -1,25 +1,22 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  adapter: <%= Anyway::Config.for(:development)[:database_adapter] %>
+  database: <%= Anyway::Config.for(:development)[:database_name] %>
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  adapter: <%= Anyway::Config.for(:test)[:database_adapter] %>
+  database: <%= Anyway::Config.for(:test)[:database_name] %>
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: <%= Anyway::Config.for(:production)[:database_adapter] %>
+  host: <%= Anyway::Config.for(:production)[:database_host] %>
+  port: <%= Anyway::Config.for(:production)[:database_port] %>
+  user: <%= Anyway::Config.for(:production)[:database_user] %>
+  password: <%= Anyway::Config.for(:production)[:database_password] %>
+  database: <%= Anyway::Config.for(:production)[:database_name] %>

@@ -9,5 +9,5 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "jquery"
-import("css/application")
-import("src/plugins")
+import("../stylesheets/application.scss")
+import("../src/plugins")

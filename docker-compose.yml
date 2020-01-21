@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  database:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_PASSWORD: 5e72dfd08f6adca3a8200fdb59742dc7fba46b62813839b0a4c70f2be5e7b5bf
+      POSTGRES_USER: barbook
+      POSTGRES_DB: barbook_production
+    ports:
+      - "5432:5432"
+    volumes:
+      - database_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bar_book:0.0.1
+    depends_on:
+      - database
+    ports:
+      - "3000:3000"
+
+volumes:
+  database_data:
