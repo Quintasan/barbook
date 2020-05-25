@@ -13,7 +13,7 @@ gem 'hamlit'
 gem 'hamlit-rails'
 gem "image_processing", "~> 1.8"
 gem 'jb'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.2'
 gem 'shrine', '~> 3.0'
 gem 'turbolinks', '~> 5'
