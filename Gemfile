@@ -11,7 +11,7 @@ gem 'decent_exposure'
 gem 'dry-validation'
 gem 'hamlit'
 gem 'hamlit-rails'
-gem "image_processing", "~> 1.8"
+gem "image_processing", "~> 1.12"
 gem 'jb'
 gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.2'
